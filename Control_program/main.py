@@ -7,18 +7,6 @@ import serial
 import time
 
 
-def alg_1_btn_click():
-    pass
-
-
-def alg_2_btn_click():
-    pass
-
-
-def alg_3_btn_click():
-    pass
-
-
 class App:
     def __init__(self, window, title, size):
         super().__init__()
@@ -32,17 +20,28 @@ class App:
         self.window.maxsize(size[0], size[1])
 
         # Создание рамки для панели с выбором алгоритма
-        frame_select_alg = ttk.Frame(window, borderwidth=1, relief=SOLID, padding=[160, 8])
-        select_alg_label = ttk.Label(frame_select_alg, text="Выберите алгоритм действий:")
-        alg_1_btn = ttk.Button(frame_select_alg, text="Алгоритм 1", command=alg_1_btn_click)
-        alg_2_btn = ttk.Button(frame_select_alg, text="Алгоритм 2", command=alg_2_btn_click)
-        alg_3_btn = ttk.Button(frame_select_alg, text="Алгоритм 3", command=alg_3_btn_click)
+        self.frame_select_alg = ttk.Frame(window, borderwidth=1, relief=SOLID, padding=[160, 8])
+        self.select_alg_label = ttk.Label(self.frame_select_alg, text="Выберите алгоритм действий:")
+        self.alg_1_btn = ttk.Button(self.frame_select_alg, text="Алгоритм 1", command=self.alg_1_btn_click)
+        self.alg_2_btn = ttk.Button(self.frame_select_alg, text="Алгоритм 2", command=self.alg_2_btn_click)
+        self.alg_3_btn = ttk.Button(self.frame_select_alg, text="Алгоритм 3", command=self.alg_3_btn_click)
 
-        select_alg_label.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
-        alg_1_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
-        alg_2_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
-        alg_3_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
-        frame_select_alg.pack(anchor="w", padx=5, pady=5)
+        self.select_alg_label.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
+        self.alg_1_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
+        self.alg_2_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
+        self.alg_3_btn.pack(anchor="n", padx=3, pady=3, expand=True, ipadx=2, ipady=2)
+        self.frame_select_alg.pack(anchor="w", padx=5, pady=5)
+
+        # Схематичное изображение алгоритмов действий
+        self.alg_1_img = ImageTk.PhotoImage(Image.open("alg_img/alg_1.png"))
+        self.alg_1_label = Label()
+        self.alg_1_label.place(x=3, y=160)
+        self.alg_2_img = ImageTk.PhotoImage(Image.open("alg_img/alg_2.png"))
+        self.alg_2_label = Label()
+        self.alg_2_label.place(x=3, y=160)
+        self.alg_3_img = ImageTk.PhotoImage(Image.open("alg_img/alg_3.png"))
+        self.alg_3_label = Label()
+        self.alg_3_label.place(x=3, y=160)
 
         # Установка параметров для захвата видео с веб-камеры
         self.video_source = 0
@@ -66,6 +65,22 @@ class App:
 
         self.window.after(self.delay, self.update_video)
 
+    # функции для выбора алгоритма дейсвий и показа его схематичного изображения
+    def alg_1_btn_click(self):
+        self.alg_2_label.config(image="")
+        self.alg_3_label.config(image="")
+        self.alg_1_label.config(image=self.alg_1_img)
+
+    def alg_2_btn_click(self):
+        self.alg_1_label.config(image="")
+        self.alg_3_label.config(image="")
+        self.alg_2_label.config(image=self.alg_2_img)
+
+    def alg_3_btn_click(self):
+        self.alg_1_label.config(image="")
+        self.alg_2_label.config(image="")
+        self.alg_3_label.config(image=self.alg_3_img)
+
     def __del__(self):
         if self.vid.isOpened():
             self.vid.release()
@@ -81,3 +96,4 @@ class App:
 
 root = tk.Tk()
 App(root, 'Robot control application', (1170, 500))
+

@@ -1,0 +1,16 @@
+Тест программы - https://drive.google.com/file/d/1PoNAlJezmt8GZvdWAna8LB_BSY-CBM_c/view?usp=sharing
+
+
+Тест алгоритма 1 - https://drive.google.com/file/d/1kpWIUYRhTinQO9hZz1-y-1PHE0J3coU9/view?usp=sharing
+
+
+Тест алгоритма 2 - https://drive.google.com/file/d/1kp2D6ehT_RYyQkjhgm1KN002DebcDaLg/view?usp=sharing
+
+
+Тест алгоритма 3 - https://drive.google.com/file/d/1kmm4ES3QOyDhci7ulaQz5frAX8RGAF_8/view?usp=sharing
+
+
+Тест модели YOLOv8n - https://drive.google.com/file/d/1hLMy4pDIM4a-sUacpfUOCVH13l-yxJ5M/view?usp=sharing
+
+
+Тест модели YOLOv8s - https://drive.google.com/file/d/19IOZyYuN58Vwitx9c9tWsOMEKF3jQP5w/view?usp=sharing

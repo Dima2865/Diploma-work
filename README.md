@@ -1,6 +1,6 @@
 # Diploma-work
 
-Папка Arduino_firmware содежит исходный код прошивки для микроконтроллера Arduino Mega2560 на языке Arduino C.
+Папка Arduino_firmware содержит исходный код прошивки для микроконтроллера Arduino Mega2560 на языке Arduino C.
 
 Папка Control_program содержит исходный код основной программы для управления манипулятором на языке Python.
 

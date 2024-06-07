@@ -1,0 +1,209 @@
+#include <ServoSmooth.h>
+
+// переменные для сервоприводов первого манипулятора
+ServoSmooth servo1_m1;
+ServoSmooth servo2_m1;
+ServoSmooth servo3_m1;
+ServoSmooth servo4_m1;
+ServoSmooth servo5_m1;
+ServoSmooth servo6_m1;
+
+int s1_m1_angle = 0;
+int s2_m1_angle = 0;
+int s3_m1_angle = 0;
+int s4_m1_angle = 0;
+int s5_m1_angle = 0;
+int s6_m1_angle = 0;
+
+String serial_input;
+int start = 0;
+
+void setup() {
+  // инициализация последовательнго порта для связи с Raspberry Pi
+  Serial.begin(9600);
+
+  // назначение пинов платы для сервоприводов первого манипулятора 
+  servo1_m1.attach(2); 
+  servo1_m1.smoothStart();
+  servo2_m1.attach(3);
+  servo2_m1.smoothStart();
+  servo3_m1.attach(4);
+  servo3_m1.smoothStart();
+  servo4_m1.attach(5);
+  servo4_m1.smoothStart();
+  servo5_m1.attach(6);
+  servo5_m1.smoothStart();
+  servo6_m1.attach(7);
+  servo6_m1.smoothStart();
+
+  // delayMode - вызов tick блокирует код на величину импульса (0.7-2.5 мс) - по умолчанию   
+  // asyncMode - вызов tick не блокирует код на величину импульса (0.7-2.5 мс)
+  // но работа будет нестабильной при наличии задержек в коде
+  // в этом режиме tick вернёт true на период импульса, можно запрещать
+  // тяжёлые функции на этот период 
+
+  // установка режима работы для сервоприводов первого манипулятора
+  servo1_m1.delayMode();
+  servo2_m1.delayMode();
+  servo3_m1.delayMode();
+  servo4_m1.delayMode();
+  servo5_m1.delayMode();
+  servo6_m1.delayMode();
+}
+
+void loop() {
+  if (start == 0) {
+    servo1_m1_set_position(90, 20);
+    start = 1;
+  }
+
+
+  
+
+
+
+  if (Serial.available() > 0) {
+    serial_input = Serial.readStringUntil('\n');
+  }
+  
+  if(serial_input == "Hello from Raspberry Pi!") {
+    
+    delay(1000);
+  }
+
+}
+
+
+int servo1_m1_set_position(int s1_m1_angle, int delay_time) {
+  int current_angle = servo1_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle1 - ");
+  Serial.println(current_angle);
+
+  while(val != s1_m1_angle) {    
+    if(current_angle > s1_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s1_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s1_m1_angle) {
+      break;
+    }
+    servo1_m1.tick();
+    servo1_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+int servo2_m1_set_position(int s2_m1_angle, int delay_time) {
+  int current_angle = servo2_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle2 - ");
+  Serial.println(current_angle);
+
+  while(val != s2_m1_angle) {    
+    if(current_angle > s2_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s2_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s2_m1_angle) {
+      break;
+    }
+    servo2_m1.tick();
+    servo2_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+int servo3_m1_set_position(int s3_m1_angle, int delay_time) {
+  int current_angle = servo3_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle3 - ");
+  Serial.println(current_angle);
+
+  while(val != s3_m1_angle) {    
+    if(current_angle > s3_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s3_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s3_m1_angle) {
+      break;
+    }
+    servo3_m1.tick();
+    servo3_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+int servo4_m1_set_position(int s4_m1_angle, int delay_time) {
+  int current_angle = servo4_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle4 - ");
+  Serial.println(current_angle);
+
+  while(val != s4_m1_angle) {    
+    if(current_angle > s4_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s4_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s4_m1_angle) {
+      break;
+    }
+    servo4_m1.tick();
+    servo4_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+int servo5_m1_set_position(int s5_m1_angle, int delay_time) {
+  int current_angle = servo5_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle5 - ");
+  Serial.println(current_angle);
+
+  while(val != s5_m1_angle) {    
+    if(current_angle > s5_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s5_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s5_m1_angle) {
+      break;
+    }
+    servo5_m1.tick();
+    servo5_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+int servo6_m1_set_position(int s6_m1_angle, int delay_time) {
+  int current_angle = servo6_m1.read();
+  int val = current_angle;
+  Serial.print("current_angle6 - ");
+  Serial.println(current_angle);
+
+  while(val != s6_m1_angle) {    
+    if(current_angle > s6_m1_angle) {
+      val -= 1;
+    }
+    if(current_angle < s6_m1_angle) {
+      val += 1;
+    }    
+    if(current_angle == s6_m1_angle) {
+      break;
+    }
+    servo6_m1.tick();
+    servo6_m1.write(val);
+    delay(delay_time);
+  }
+}
+
+

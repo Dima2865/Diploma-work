@@ -31,7 +31,32 @@
 
 ![alg_3](https://github.com/Dima2865/manipulator_control_sys_diplom_work/assets/100437197/1885b224-c48d-45ed-8a69-fb875a2787e9)
 
+# Демонстрация работы 
+
+https://drive.google.com/file/d/1PoNAlJezmt8GZvdWAna8LB_BSY-CBM_c/view?usp=sharing
+
 
 # Установка и запуск:
 
+Для установки требуется скачать и распаковать архив Robot_control_app.7z из раздела Releases.
 
+Запуск системы осуществляется открытием файла: Robot control app.exe
+
+Требования для запуска:
+
+1. Процессор: Intel Core i3-12100 или аналогичный;
+2. ОЗУ: 16 Gb и более;
+3. Видеокарта: Nvidia GeForce GTX 1050 или лучше;
+4. Свободное место на диске: 6 Gb;
+5. Драйвер CH341;
+6. Камера;
+7. Микроконтроллер Arduino Mega2560;
+8. Стенд с манипулятором и объектами.
+
+# Дополнительно
+
+Архитектура системы:
+![архитектура](https://github.com/Dima2865/manipulator_control_sys_diplom_work/assets/100437197/17f71747-de06-446b-809f-c199d0012b90)
+
+Диаграмма вариантов исползования системы:
+![use_case](https://github.com/Dima2865/manipulator_control_sys_diplom_work/assets/100437197/f63af99e-159d-41be-b948-c9c44514e86d)
